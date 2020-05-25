@@ -1,0 +1,28 @@
+<div class="container page">
+    <h4>
+        Basic Pagination
+    </h4>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>Stuent Name</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of obj | paginate: { itemsPerPage: 4, currentPage: p }">
+                <td>{{item.Id}}</td>
+                <td>{{item.studentname}}</td>
+                <td>{{item.date}}</td>
+                <td>{{item.time}}</td>
+                <td class="alarm"><i class="fa fa-edit fa-1x"></i></td>
+                <td class="alarm"><i class="fa fa-trash-o" aria-hidden="true"></i></td>
+            </tr>
+        </tbody>
+    </table>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>
